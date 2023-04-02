@@ -1,4 +1,4 @@
-import { HomeView } from './components/HomeView/HomeView';
+import { ItemListContainer } from './components/ItemListContainer/ItemListContainer';
 import { NavBar } from './components/NavBar/NavBar';
 
 function App() {
@@ -6,8 +6,7 @@ function App() {
     <>
       <div>
         <NavBar />
-        <h1>holaa mundo</h1>
-        <HomeView />
+        <ItemListContainer greeting='Hola Mundo' />
       </div>
     </>
   );
