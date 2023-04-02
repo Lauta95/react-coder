@@ -1,8 +1,14 @@
+import { HomeView } from './components/HomeView/HomeView';
+import { NavBar } from './components/NavBar/NavBar';
 
 function App() {
   return (
     <>
-      <h1>hola mundo</h1>
+      <div>
+        <NavBar />
+        <h1>holaa mundo</h1>
+        <HomeView />
+      </div>
     </>
   );
 }
