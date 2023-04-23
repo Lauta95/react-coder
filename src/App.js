@@ -10,9 +10,9 @@ function App() {
     <>
       <div>
         <NavBar />
-        <ItemListContainer />
         {/* <ItemCount /> */}
         <hr />
+        <ItemListContainer />
         {/* <Pika /> */}
       </div>
     </>

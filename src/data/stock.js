@@ -22,5 +22,11 @@ export const stock = [
         description: "The Last of Us",
         price: 50,
         image: 'https://cdn.cloudflare.steamstatic.com/steam/apps/1888930/header.jpg?t=1680282721',
+    },
+    {
+        id: 5,
+        description: "New World",
+        price: 40,
+        image: 'https://cdn.cloudflare.steamstatic.com/steam/apps/1063730/header.jpg?t=1680741052',
     }
 ]

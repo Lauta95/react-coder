@@ -1,0 +1,10 @@
+img {
+    height: 100px;
+    width: 250px;
+}
+
+.fila {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
