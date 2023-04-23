@@ -19,7 +19,19 @@ export const Pika = () => {
                     img: data.sprites.front_default
                 })
             })
-    }, [])
+    }, [id])
+
+    const anterior = () => {
+        id > 1 && setId (id - 1)
+    }
+
+    const siguiente = () => {
+        setId(id + 1)
+    }
+
+    const busqueda = (e) => {
+        setBusqueda(e.target.value)
+    }
 
     return (
         <>
@@ -27,6 +39,13 @@ export const Pika = () => {
         <h3 className="pika">{pokemon.nombre}</h3>
         <div className="pika">
         <img src={pokemon.img}/>
+        </div>
+        <div className="pika">
+            <button onClick={anterior}>Anterior</button>
+            <button onClick={siguiente}>Siguiente</button>
+        </div>
+        <div className="pika">
+            <input type="text"  value={busqueda}/>
         </div>
         </>
     )
