@@ -10,10 +10,10 @@ function App() {
     <>
       <div>
         <NavBar />
-        <ItemListContainer greeting='Hola Mundo' />
-        <ItemCount />
+        <ItemListContainer />
+        {/* <ItemCount /> */}
         <hr />
-        <Pika />
+        {/* <Pika /> */}
       </div>
     </>
   );
