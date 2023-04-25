@@ -4,7 +4,7 @@ import { ItemListContainer } from './components/ItemListContainer/ItemListContai
 import { NavBar } from './components/NavBar/NavBar';
 import { ItemCount } from './components/ItemCount/ItemCount';
 import { Pika } from './components/PikaPi/Pika';
-// import {ItemDetailContainer} from './components/ItemDetailContainer/ItemDetailContainer'
+import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetailContainer'
 import {
   BrowserRouter as Router,
   Routes,
@@ -18,11 +18,11 @@ function App() {
     <div>
       <div className='App'>
         <Router>
-        <NavBar />
+          <NavBar />
           <Routes>
             <Route path='/' element={<ItemListContainer />} />
-            <Route path='productos/:categoryId' element={<ItemListContainer/>}/>
-            <Route path='/detail/:itemId' element={<ItemListContainer/>}/>
+            <Route path='productos/:categoryId' element={<ItemListContainer />} />
+            <Route path='/detail/:itemId' element={<ItemDetailContainer />} />
             <Route path='/counter' element={<ItemCount />} />
             <Route path='/pika' element={<Pika />} />
             <Route path='*' element={<Navigate to='/' />} />
