@@ -4,18 +4,29 @@ import { ItemListContainer } from './components/ItemListContainer/ItemListContai
 import { NavBar } from './components/NavBar/NavBar';
 import { ItemCount } from './components/ItemCount/ItemCount';
 import { Pika } from './components/PikaPi/Pika';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Navigate,
+  Route,
+} from 'react-router-dom';
+import { Navbar } from 'react-bootstrap';
 
 function App() {
   return (
-    <>
-      <div>
+    <div>
+      <div className='App'>
+        <Router>
         <NavBar />
-        {/* <ItemCount /> */}
-        <hr />
-        <ItemListContainer />
-        {/* <Pika /> */}
+          <Routes>
+            <Route path='/' element={<ItemListContainer />} />
+            <Route path='/counter' element={<ItemCount />} />
+            <Route path='/pika' element={<Pika />} />
+            <Route path='*' element={<Navigate to='/' />} />
+          </Routes>
+        </Router>
       </div>
-    </>
+    </div>
   );
 }
 
