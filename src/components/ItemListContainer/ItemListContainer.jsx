@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { pedirProductos } from '../../helpers/pedirProductos';
-import {ItemList} from '../ItemList/ItemList';
+import { ItemList } from '../ItemList/ItemList';
 import './itemListContainer.css'
+import { useParams } from 'react-router-dom'
 
 export const ItemListContainer = (props) => {
 
@@ -9,16 +10,23 @@ export const ItemListContainer = (props) => {
 
   const [loading, setLoading] = useState(false)
 
-  useEffect(() => {
-    setLoading(true)
-    pedirProductos()
-      .then((res) => {
-        setItems(res)
-        console.log(res);
-      })
-      .catch((error) => console.log(error))
-      .finally(() => { setLoading(false) })
-  }, [])
+  // const param = useParams();
+
+  const {categoryId} = useParams()
+
+    useEffect(() => {
+      setLoading(true)
+      pedirProductos()
+        .then((res) => {
+          if(categoryId){
+            setItems(res.filter(prod => prod.category === categoryId))
+          } else {
+            setItems(res)
+          }
+        })
+        .catch((error) => console.log(error))
+        .finally(() => { setLoading(false) })
+    }, [categoryId])
 
   return (
     <>

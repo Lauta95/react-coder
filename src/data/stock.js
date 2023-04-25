@@ -3,30 +3,35 @@ export const stock = [
         id: 1,
         description: "Dark Souls",
         price: 20,
-        image: 'https://cdn.cloudflare.steamstatic.com/steam/apps/374320/header.jpg?t=1671097812'
+        image: 'https://cdn.cloudflare.steamstatic.com/steam/apps/374320/header.jpg?t=1671097812',
+        category: 'Acción'
     },
     {
         id: 2,
         description: "gta",
         price: 30,
-        image: 'https://cdn.cloudflare.steamstatic.com/steam/apps/271590/header.jpg?t=1678296348'
+        image: 'https://cdn.cloudflare.steamstatic.com/steam/apps/271590/header.jpg?t=1678296348',
+        category: 'Crimen'
     },
     {
         id: 3,
         description: "Sons Of Forest",
         price: 25,
-        image: 'https://cdn.cloudflare.steamstatic.com/steam/apps/1326470/header.jpg?t=1679677298'
+        image: 'https://cdn.cloudflare.steamstatic.com/steam/apps/1326470/header.jpg?t=1679677298',
+        category: 'Supervivencia'
     },
     {
         id: 4,
         description: "The Last of Us",
         price: 50,
         image: 'https://cdn.cloudflare.steamstatic.com/steam/apps/1888930/header.jpg?t=1680282721',
+        category: 'Supervivencia'
     },
     {
         id: 5,
         description: "New World",
         price: 40,
         image: 'https://cdn.cloudflare.steamstatic.com/steam/apps/1063730/header.jpg?t=1680741052',
+        category: 'Acción'
     }
 ]
