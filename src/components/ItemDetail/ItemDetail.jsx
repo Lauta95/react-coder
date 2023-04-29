@@ -1,14 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Card, Button } from 'react-bootstrap'
 import './itemDetail.css'
 import { useNavigate } from 'react-router-dom'
 import { ItemCount } from '../ItemCount/ItemCount'
+import { CartContext } from '../context/CartContext'
+
 
 export const ItemDetail = ({ id, description, price, image, category, stock }) => {
   const navigate = useNavigate();
   const goBack = () => {
     navigate(-1)
   }
+
+  const { addToCart } = useContext(CartContext)
 
   const [counter, setCounter] = useState(0)
 
@@ -22,6 +26,7 @@ export const ItemDetail = ({ id, description, price, image, category, stock }) =
       counter
     }
     console.log(newItem);
+    addToCart(newItem);
   }
 
   return (

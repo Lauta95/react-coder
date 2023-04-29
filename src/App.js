@@ -11,25 +11,43 @@ import {
   Navigate,
   Route,
 } from 'react-router-dom';
-import { Navbar } from 'react-bootstrap';
+import { CartContext } from './components/context/CartContext';
+import { useState } from 'react';
 
 function App() {
+
+  const [carrito, setCarrito] = useState([])
+
+  console.log(carrito);
+
+  const addToCart = (item) => {
+    setCarrito([...carrito, item])
+  }
+  const calcularCantidad = () => {
+    return carrito.reduce((acc, prod) => acc + prod.counter, 0)
+  }
+
   return (
-    <div>
-      <div className='App'>
-        <Router>
-          <NavBar />
-          <Routes>
-            <Route path='/' element={<ItemListContainer />} />
-            <Route path='productos/:categoryId' element={<ItemListContainer />} />
-            <Route path='/detail/:itemId' element={<ItemDetailContainer />} />
-            <Route path='/counter' element={<ItemCount />} />
-            <Route path='/pika' element={<Pika />} />
-            <Route path='*' element={<Navigate to='/' />} />
-          </Routes>
-        </Router>
+    <CartContext.Provider value={{
+      addToCart,
+      calcularCantidad
+    }}>
+      <div>
+        <div className='App'>
+          <Router>
+            <NavBar />
+            <Routes>
+              <Route path='/' element={<ItemListContainer />} />
+              <Route path='productos/:categoryId' element={<ItemListContainer />} />
+              <Route path='/detail/:itemId' element={<ItemDetailContainer />} />
+              <Route path='/counter' element={<ItemCount />} />
+              <Route path='/pika' element={<Pika />} />
+              <Route path='*' element={<Navigate to='/' />} />
+            </Routes>
+          </Router>
+        </div>
       </div>
-    </div>
+    </CartContext.Provider>
   );
 }
 
