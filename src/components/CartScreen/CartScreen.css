@@ -1,5 +1,17 @@
 .listado {
     display: flex;
+    justify-content: space-between;
+}
+
+.ptotal {
+    display: flex;
+    align-items: baseline;
     justify-content: center;
-    text-align: center;
+    gap: 65px;
+}
+
+.vacio {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
 }

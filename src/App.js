@@ -3,7 +3,6 @@ import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 import { ItemListContainer } from './components/ItemListContainer/ItemListContainer';
 import { NavBar } from './components/NavBar/NavBar';
 import { ItemCount } from './components/ItemCount/ItemCount';
-import { Pika } from './components/PikaPi/Pika';
 import { ItemDetailContainer } from './components/ItemDetailContainer/ItemDetailContainer'
 import {
   BrowserRouter as Router,
@@ -11,45 +10,12 @@ import {
   Navigate,
   Route,
 } from 'react-router-dom';
-import { CartContext } from './components/context/CartContext';
-import { useState } from 'react';
 import { CartScreen } from './components/CartScreen/CartScreen';
+import { CartProvider } from './components/context/CartContext';
 
 function App() {
-
-  const [carrito, setCarrito] = useState([])
-
-  console.log(carrito);
-
-  const addToCart = (item) => {
-    setCarrito([...carrito, item])
-  }
-  const calcularCantidad = () => {
-    return carrito.reduce((acc, prod) => acc + prod.counter, 0)
-  }
-
-  const precioTotal = () => {
-    return carrito.reduce((acc, prod) => acc + prod.price * prod.counter, 0)
-  }
-
-  const removerItem = (itemId) => {
-    const newCart = carrito.filter((prod) => prod.id !== itemId)
-    setCarrito(newCart)
-  }
-
-  const vaciarCarrito = () => {
-    setCarrito([])
-  }
-
   return (
-    <CartContext.Provider value={{
-      addToCart,
-      calcularCantidad,
-      precioTotal,
-      removerItem,
-      carrito,
-      vaciarCarrito
-    }}>
+    <CartProvider>
       <div>
         <div className='App'>
           <Router>
@@ -60,13 +26,12 @@ function App() {
               <Route path='/detail/:itemId' element={<ItemDetailContainer />} />
               <Route path='/counter' element={<ItemCount />} />
               <Route path='cart' element={<CartScreen />} />
-              <Route path='/pika' element={<Pika />} />
               <Route path='*' element={<Navigate to='/' />} />
             </Routes>
           </Router>
         </div>
       </div>
-    </CartContext.Provider>
+    </CartProvider>
   );
 }
 
