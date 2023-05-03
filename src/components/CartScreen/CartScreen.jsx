@@ -6,10 +6,11 @@ import './CartScreen.css'
 
 export const CartScreen = () => {
 
-    const { carrito, precioTotal, removerItem } = useContext(CartContext)
+    const { carrito, precioTotal, removerItem, vaciarCarrito } = useContext(CartContext)
 
     return (
         <div className='container'>
+            <h3 className='listado'>Resumen de compras</h3>
             {
                 carrito.map((prod) => (
                     <>
@@ -30,6 +31,11 @@ export const CartScreen = () => {
                 ))
             }
             <strong className='listado'>PRECIO TOTAL US${precioTotal()}</strong>
+            <div className='listado'>
+                <Button className='btn btn-danger' onClick={vaciarCarrito}> 
+                    Vaciar carrito
+                </Button>
+            </div>
         </div>
     )
 }

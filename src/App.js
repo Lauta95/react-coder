@@ -37,13 +37,18 @@ function App() {
     setCarrito(newCart)
   }
 
+  const vaciarCarrito = () => {
+    setCarrito([])
+  }
+
   return (
     <CartContext.Provider value={{
       addToCart,
       calcularCantidad,
       precioTotal,
       removerItem,
-      carrito
+      carrito,
+      vaciarCarrito
     }}>
       <div>
         <div className='App'>
