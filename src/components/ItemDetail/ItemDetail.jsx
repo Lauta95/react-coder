@@ -4,7 +4,7 @@ import './itemDetail.css'
 import { useNavigate } from 'react-router-dom'
 import { ItemCount } from '../ItemCount/ItemCount'
 import { CartContext } from '../context/CartContext'
-
+import {Link} from 'react-router-dom'
 
 export const ItemDetail = ({ id, description, price, image, category, stock }) => {
   const navigate = useNavigate();
@@ -48,6 +48,9 @@ export const ItemDetail = ({ id, description, price, image, category, stock }) =
         <Button onClick={sumarAlCarrito}>Agregar al carrito</Button>
       </Card.Body>
       <Button onClick={goBack} variant="primary">Volver atrás</Button>
+      <Link to='/cart' className='btn btn-info'>
+        Ir al carrito
+      </Link>
     </Card>
   );
 }

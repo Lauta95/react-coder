@@ -41,6 +41,9 @@ export const CartScreen = () => {
                             <Button className='btn btn-danger' onClick={vaciarCarrito}>
                                 Vaciar carrito
                             </Button>
+                        <Link className='btn btn-success' to='/checkout'>
+                            Terminar compra
+                        </Link>
                         </div>
                     </>
             }
