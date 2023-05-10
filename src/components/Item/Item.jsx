@@ -3,12 +3,12 @@ import './item.css'
 import { Card, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-export const Item = ({ id, description, price, image, category }) => {
+export const Item = ({ id, name, description, price, image, category }) => {
   return (
     <Card className='tarjeta'>
       <Card.Img variant="top" src={image} />
       <Card.Body>
-        <Card.Title>ID: {id}</Card.Title>
+        <Card.Title>{name}</Card.Title>
         <Card.Text>
           Descripción: {description}
         </Card.Text>
