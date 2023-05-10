@@ -6,7 +6,7 @@ import { ItemCount } from '../ItemCount/ItemCount'
 import { CartContext } from '../context/CartContext'
 import {Link} from 'react-router-dom'
 
-export const ItemDetail = ({ id, description, price, image, category, stock }) => {
+export const ItemDetail = ({ id, name, description, price, image, category, stock }) => {
   const navigate = useNavigate();
   const goBack = () => {
     navigate(-1)
@@ -19,6 +19,7 @@ export const ItemDetail = ({ id, description, price, image, category, stock }) =
   const sumarAlCarrito = () => {
     const newItem = {
       id,
+      name,
       description,
       image,
       price,
@@ -33,7 +34,7 @@ export const ItemDetail = ({ id, description, price, image, category, stock }) =
     <Card className='tarjeta'>
       <Card.Img variant="top" src={image} />
       <Card.Body>
-        <Card.Title>ID: {id}</Card.Title>
+        <Card.Title>{name}</Card.Title>
         <Card.Text>
           Descripción: {description}
         </Card.Text>
