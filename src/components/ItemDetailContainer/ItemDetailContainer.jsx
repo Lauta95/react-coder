@@ -24,7 +24,7 @@ export const ItemDetailContainer = () => {
         item.get()
         .then((doc) =>{
             setItem({
-                id: doc.id, ...doc.data
+                id: doc.id, ...doc.data()
             })
         })
         .catch((err)=> console.log(err))
