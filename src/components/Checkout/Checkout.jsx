@@ -1,8 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
+import { CartContext } from '../context/CartContext'
 import { Link } from 'react-router-dom';
+import firebase from 'firebase';
+import 'firebase/firestore'
 
 export const Checkout = () => {
-
+  const { carrito, precioTotal, vaciarCarrito } = useContext(CartContext)
   const [email, setEmail] = useState('');
   const [nombre, setNombre] = useState('');
   const [apellido, setApellido] = useState('');
@@ -15,6 +18,19 @@ export const Checkout = () => {
     console.log('Nombre:', nombre);
     console.log('Apellido:', apellido);
     console.log('Telefono:', telefono);
+    
+      const orden = {
+        buyer: {
+          email,
+          nombre,
+          apellido,
+          telefono
+        },
+        item: carrito,
+        total_price: precioTotal(),
+        data: firebase.firestore.Timestamp.fromDate(new Date())
+      }
+      console.log(orden)
   }
 
   return (
