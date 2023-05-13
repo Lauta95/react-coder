@@ -1,8 +1,10 @@
-import React, { useState, useContext } from 'react'
-import { CartContext } from '../context/CartContext'
+import React, { useState, useContext } from 'react';
+import { CartContext } from '../context/CartContext';
 import { Link } from 'react-router-dom';
 import firebase from 'firebase';
-import 'firebase/firestore'
+import 'firebase/firestore';
+import { getFirestore } from '../../firebase/config';
+import Swal from 'sweetalert2'
 
 export const Checkout = () => {
   const { carrito, precioTotal, vaciarCarrito } = useContext(CartContext)
@@ -18,19 +20,33 @@ export const Checkout = () => {
     console.log('Nombre:', nombre);
     console.log('Apellido:', apellido);
     console.log('Telefono:', telefono);
-    
-      const orden = {
-        buyer: {
-          email,
-          nombre,
-          apellido,
-          telefono
-        },
-        item: carrito,
-        total_price: precioTotal(),
-        data: firebase.firestore.Timestamp.fromDate(new Date())
-      }
-      console.log(orden)
+
+    const orden = {
+      buyer: {
+        email,
+        nombre,
+        apellido,
+        telefono
+      },
+      item: carrito,
+      total_price: precioTotal(),
+      data: firebase.firestore.Timestamp.fromDate(new Date())
+    }
+    console.log(orden)
+
+    const db = getFirestore()
+    const ordenes = db.collection('ordenes')
+    ordenes.add(orden)
+      .then((res) => {
+        Swal.fire({
+          icon: 'success',
+          title: 'Comprado!',
+          text: `Disfrute su juego. Número de compra: ${res.id}`,
+        })
+        .finally(()=>{
+          console.log('Operación realizada con exito')
+        })
+      })
   }
 
   return (
