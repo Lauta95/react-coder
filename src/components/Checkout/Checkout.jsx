@@ -42,10 +42,13 @@ export const Checkout = () => {
           icon: 'success',
           title: 'Comprado!',
           text: `Disfrute su juego. Número de compra: ${res.id}`,
+          willClose: () => {
+            vaciarCarrito()
+          }
         })
-        .finally(()=>{
-          console.log('Operación realizada con exito')
-        })
+          .finally(() => {
+            console.log('Operación realizada con exito')
+          })
       })
   }
 
