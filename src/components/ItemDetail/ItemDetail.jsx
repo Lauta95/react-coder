@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { ItemCount } from '../ItemCount/ItemCount'
 import { CartContext } from '../context/CartContext'
 import {Link} from 'react-router-dom'
+import Swal from 'sweetalert2'
 
 export const ItemDetail = ({ id, name, description, price, image, category, stock }) => {
   const navigate = useNavigate();
@@ -28,6 +29,13 @@ export const ItemDetail = ({ id, name, description, price, image, category, stoc
     }
     console.log(newItem);
     addToCart(newItem);
+    Swal.fire({
+      position: 'middle',
+      icon: 'success',
+      title: 'Juego agregado al carrito',
+      showConfirmButton: false,
+      timer: 750
+    })
   }
 
   return (
