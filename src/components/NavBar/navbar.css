@@ -1,6 +1,17 @@
 .menu {
-    display: flex;
-    justify-content: space-around;
-    background-color: aquamarine;
-    margin-bottom: 40px;
+    text-decoration: none;
+    color: aliceblue;
+}
+
+.menu:hover {
+    color: gray
+}
+
+.menu2 {
+    text-decoration: none;
+    color: gray
+}
+
+.menu2:hover {
+    color: aliceblue;
 }
