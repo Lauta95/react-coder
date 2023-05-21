@@ -10,11 +10,6 @@ import Navbar from 'react-bootstrap/Navbar';
 export const NavBar = () => {
   return (
     <div>
-      {/* <Link to='/'>Inicio</Link>
-      <Link to='/productos/Acción'>Juegos de Acción</Link>
-      <Link to='/productos/Aventura'>Juegos de Aventura</Link>
-      <Link to='/productos/Estrategia'>Juegos de Estrategia</Link>
-      <Link to='cart'><CartWidget /></Link> */}
       <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
         <Container>
           <Navbar.Brand>
