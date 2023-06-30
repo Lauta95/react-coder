@@ -4,10 +4,12 @@ import './itemList.css';
 
 export const ItemList = ({ productos = [] }) => {
     return (
-        <div className='container'>
+        <div>
             <h3 className='titulo'>Nuestros juegos</h3>
-            <div className='fila'>
-            {productos.map((item) => <Item {...item} key={item.id} />)}
+            <div className='container'>
+                <div className='fila'>
+                    {productos.map((item) => <Item {...item} key={item.id} />)}
+                </div>
             </div>
         </div>
     )

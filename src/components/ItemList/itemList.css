@@ -3,12 +3,16 @@ img {
     width: 250px;
 }
 
-.fila {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+
+
+@media only screen and (min-width: 768px) {
+    .fila {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
 }
 
-.titulo{
+.titulo {
     text-align: center;
 }
