@@ -3,6 +3,7 @@ import { getFirestore } from '../../firebase/config';
 import { ImSpinner3 } from 'react-icons/im'
 import { ItemDetail } from '../ItemDetail/ItemDetail'
 import { useParams } from 'react-router-dom'
+import './ItemDetailContainer.css'
 
 export const ItemDetailContainer = () => {
 
@@ -10,7 +11,7 @@ export const ItemDetailContainer = () => {
 
     const [loading, setLoading] = useState(false)
 
-    const {itemId} = useParams()
+    const { itemId } = useParams()
 
     useEffect(() => {
         setLoading(true)
@@ -22,24 +23,26 @@ export const ItemDetailContainer = () => {
         const item = productos.doc(itemId)
 
         item.get()
-        .then((doc) =>{
-            setItem({
-                id: doc.id, ...doc.data()
+            .then((doc) => {
+                setItem({
+                    id: doc.id, ...doc.data()
+                })
             })
-        })
-        .catch((err)=> console.log(err))
-        .finally(()=>{
-            setLoading(false)
-        })
+            .catch((err) => console.log(err))
+            .finally(() => {
+                setLoading(false)
+            })
     }, [itemId])
 
     return (
         <section>
-            {
-            loading
-            ?<ImSpinner3/>
-            :<ItemDetail {...item}/>
-            }
+            <div className='container-card'>
+                {
+                    loading
+                        ? <ImSpinner3 />
+                        : <ItemDetail {...item} />
+                }
+            </div>
         </section>
 
     )
