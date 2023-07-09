@@ -1,15 +1,13 @@
-img {
-    height: 150px;
-    width: 250px;
-}
-
-
-
 @media only screen and (min-width: 768px) {
     .fila {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
+    }
+
+    img {
+        height: 150px;
+        width: 250px;
     }
 }
 
