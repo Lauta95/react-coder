@@ -1,5 +1,5 @@
 img {
-    height: 100px;
+    height: 150px;
     width: 250px;
 }
 
@@ -12,6 +12,15 @@ img {
         flex-wrap: wrap;
     }
 }
+
+@media only screen and (min-width: 300px) {
+    .fila {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+}
+
 
 .titulo {
     text-align: center;
