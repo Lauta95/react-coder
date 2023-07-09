@@ -14,7 +14,7 @@
 @media only screen and (min-width: 300px) {
     .fila {
         display: flex;
-        justify-content: space-between;
+        justify-content: center;
         flex-wrap: wrap;
     }
 }
